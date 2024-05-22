@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex | Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- VT323 font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    </style>
+</head>
+
+<body>
+    <header id="main-header" class="divider-top"></header>
+
+    <main class="divider">
+
+        <section class="search">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search for a pokémon..." />
+                <button type="submit">Search</button>
+                <span id="result-search"> 0 results </span>
+            </form>
+
+            <div class="grid-item">
+                <img src="./images/lucky_energy.png" alt="Lucky energy symbol" />
+                <p>Surprise!</p>
+            </div>
+        </section>
+        <div id="cards"></div>
+
+    </main>
+    <footer id="main-footer"></footer>
+    <script src="js/prophets.js"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+
+</html>
