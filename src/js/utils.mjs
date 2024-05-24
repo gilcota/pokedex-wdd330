@@ -1,3 +1,53 @@
+// Renders the header / footer markup dynamically.
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  if (callback) {
+    callback(data);
+  }
+}
+
+// Calls the markup template that is requested.
+async function loadTemplate(path) {
+  const pathresponse = await fetch(path);
+  const template = await pathresponse.text();
+  return template;
+}
+
+// Selects the header / footer elements, templates, and calls renderWithTemplate() to show it dynamically. 
+export async function loadHeaderFooter() {
+  // Get header and footer elements from the DOM
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const headerElement = document.getElementById("main-header");
+
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+  const footerElement = document.getElementById("main-footer");
+  // Render header and footer with templates
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -64,32 +114,7 @@ export function renderListWithTemplate(templateFn, parentElement,
   parentElement.insertAdjacentHTML(position, listItem.join(""));
 }
 
-//activity03
 
-export function renderWithTemplate(template, parentElement, data, callback) {
-  parentElement.insertAdjacentHTML("afterbegin", template);
-  if (callback) {
-    callback(data);
-  }
-}
-
-async function loadTemplate(path) {
-  const pathresponse = await fetch(path);
-  const template = await pathresponse.text();
-  return template;
-}
-
-export async function loadHeaderFooter() {
-  // Get header and footer elements from the DOM
-  const headerTemplate = await loadTemplate("../partials/header.html");
-  const headerElement = document.getElementById("main-header");
-
-  const footerTemplate = await loadTemplate("../partials/footer.html");
-  const footerElement = document.getElementById("main-footer");
-  // Render header and footer with templates
-  renderWithTemplate(headerTemplate, headerElement);
-  renderWithTemplate(footerTemplate, footerElement);
-}
 
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
