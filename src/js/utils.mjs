@@ -1,19 +1,4 @@
-// Renders the header / footer markup dynamically.
-export function renderWithTemplate(template, parentElement, data, callback) {
-  parentElement.insertAdjacentHTML("afterbegin", template);
-  if (callback) {
-    callback(data);
-  }
-}
-
-// Calls the markup template that is requested.
-async function loadTemplate(path) {
-  const pathresponse = await fetch(path);
-  const template = await pathresponse.text();
-  return template;
-}
-
-// Selects the header / footer elements, templates, and calls renderWithTemplate() to show it dynamically. 
+// 1. Selects the header / footer elements, templates, and calls renderWithTemplate() to show it dynamically. 
 export async function loadHeaderFooter() {
   // Get header and footer elements from the DOM
   const headerTemplate = await loadTemplate("../partials/header.html");
@@ -21,14 +6,57 @@ export async function loadHeaderFooter() {
 
   const footerTemplate = await loadTemplate("../partials/footer.html");
   const footerElement = document.getElementById("main-footer");
+
   // Render header and footer with templates
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
 
+// 2. Calls the markup template that is requested.
+async function loadTemplate(path) {
+  const pathresponse = await fetch(path);
+  const template = await pathresponse.text();
+  return template;
+}
+
+// 3. Renders the header / footer markup dynamically.
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  if (callback) {
+    callback(data);
+  }
+}
 
 
 
+
+
+
+
+
+
+export function renderListWithTemplate(templateFn, parentElement,
+  list, position = "afterbegin", clear = false) {
+
+
+  parentElement.insertAdjacentHTML("afterbegin", templateFn);
+  if (callback) {
+    callback(data);
+  }
+
+
+  // const listItem = list && list.Map(templateFn);
+
+  // if (clear) {
+  //   parentElement.innerHTML = "";
+  // }
+
+  // parentElement.insertAdjacentHTML(position, listItem && listItem.join(""));
+}
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 
 
@@ -102,17 +130,7 @@ export function getParams(param) {
   return product;
 };
 
-export function renderListWithTemplate(templateFn, parentElement,
-  list, position = "afterbegin", clear = false) {
 
-  const listItem = list.map(templateFn);
-
-  if (clear) {
-    parentElement.innerHTML = "";
-  }
-
-  parentElement.insertAdjacentHTML(position, listItem.join(""));
-}
 
 
 
@@ -125,9 +143,7 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-export function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+
 
 export function alertMessage(message, scroll = true, duration = 3000) {
   const alert = document.createElement("div");
