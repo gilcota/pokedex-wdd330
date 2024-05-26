@@ -40,11 +40,6 @@ export function renderListWithTemplate(templateFn, parentElement,
   parentElement.insertAdjacentHTML(position, listItem.join(""));
 }
 
-// 5. Capitalize first letter
-export function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 
 
 

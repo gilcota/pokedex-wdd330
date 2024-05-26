@@ -1,9 +1,9 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function pokemonCardTemplate(pokemon) {
-    return `<li class="product-card">
-        <h2 class="card__name">${pokemon.name}</h2>
-        </li>`;
+    return `<div class="pokemon-card">
+        <h1>${pokemon.name}</h1>
+        </div>`;
 }
 
 export default class PokemonListing {

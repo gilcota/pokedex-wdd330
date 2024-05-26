@@ -3,7 +3,6 @@ import PokemonListing from "./PokemonList.mjs";
 
 // import {
 //     loadHeaderFooter,
-//     capitalizeFirstLetter,
 // } from "./utils.mjs";
 
 // const category = getParams("category");
