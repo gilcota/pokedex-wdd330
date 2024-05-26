@@ -27,17 +27,9 @@ export function renderWithTemplate(template, parentElement, data, callback) {
   }
 }
 
-
-
-
-
-
-
-
-
+// 4. Renders list of 6 pokemons
 export function renderListWithTemplate(templateFn, parentElement,
   list, position = "afterbegin", clear = false) {
-
 
   const listItem = list.map(templateFn);
 
@@ -46,17 +38,9 @@ export function renderListWithTemplate(templateFn, parentElement,
   }
 
   parentElement.insertAdjacentHTML(position, listItem.join(""));
-
-
-  // const listItem = list && list.Map(templateFn);
-
-  // if (clear) {
-  //   parentElement.innerHTML = "";
-  // }
-
-  // parentElement.insertAdjacentHTML(position, listItem && listItem.join(""));
 }
 
+// 5. Capitalize first letter
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
