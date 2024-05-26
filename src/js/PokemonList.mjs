@@ -1,17 +1,13 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
-
-// function pokemonCardTemplate(pokemon) {
-//     return `<div class="pokemon-card">
-//         <h1>${pokemon.name}</h1>
-//         </div>`;
-// }
-
 function pokemonCardTemplate(pokemon) {
     return `<div class="pokemon-card">
         <img src ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" alt="Image of ${pokemon.name}" class="pimage"/>
-        <h1>${pokemon.name}</h1>
-        <h1>${pokemon.id}</h1>
+        <audio class="roar" width="100%" height="auto" controls controlsList="nodownload noplaybackrate">
+            <source src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemon.id}.ogg" type="audio/ogg">
+        </audio>
+        <h1 id="pokemon-id">#${pokemon.id}</h1>
+        <h1 id="pokemon-name">${pokemon.name}</h1>
         </div>`;
 }
 
@@ -36,7 +32,7 @@ export default class PokemonListing {
 }
 
 function filterListBySix(list) {
-    return list.sort(function () { return 0.5 - Math.random() }).slice(0, 6);
+    return list.sort(function () { return 0.5 - Math.random() }).slice(0, 8);
 }
 
 function filterListBySearch(list, searchWord) {
