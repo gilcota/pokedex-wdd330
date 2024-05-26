@@ -26,10 +26,10 @@ async function convertToJson(res) {
 
 
 export default class ExternalServices {
-    constructor(category) {
-        /* this.category = category;
-        this.path = `../json/${this.category}.json`; */
-    }
+    // constructor() {
+    //     /* this.category = category;
+    //     this.path = `../json/${this.category}.json`; */
+    // }
 
     // async getData(category) {
     async getData() {
