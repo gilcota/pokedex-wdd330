@@ -9,9 +9,9 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 function pokemonCardTemplate(pokemon) {
     return `<div class="pokemon-card">
+        <img src ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" alt="Image of ${pokemon.name}" class="pimage"/>
         <h1>${pokemon.name}</h1>
         <h1>${pokemon.id}</h1>
-        <img src ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" />
         </div>`;
 }
 
