@@ -38,6 +38,10 @@ img {
   max-width: 100%;
 }
 
+#lucky {
+  max-width: 100%;
+}
+
 header {
   justify-content: center;
   padding: 10px;
@@ -146,6 +150,14 @@ header {
 }
 
 .grid-item img {
+  grid-column: 1/2;
+  width: 53px;
+  height: 40px;
+  margin: auto;
+  margin-right: 20px;
+}
+
+.grid-item #lucky {
   grid-column: 1/2;
   width: 53px;
   height: 40px;

@@ -2,7 +2,7 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 function pokemonCardTemplate(pokemon) {
     return `<div class="pokemon-card">
-        <img src ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" alt="Image of ${pokemon.name}" class="pimage"/>
+        <img src ="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" loading="lazy" alt="Image of ${pokemon.name}" class="pimage"/>
         <audio class="roar" width="100%" height="auto" controls controlsList="nodownload noplaybackrate">
             <source src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemon.id}.ogg" type="audio/ogg">
         </audio>
@@ -23,7 +23,7 @@ export default class PokemonListing {
     async init() {
         console.log("list")
         const list = await this.dataSource.getData();
-        this.renderList(filterListBySix(list));
+        this.renderList(filterListByEight(list));
     };
 
     renderList(list) {
@@ -31,8 +31,9 @@ export default class PokemonListing {
     };
 }
 
-function filterListBySix(list) {
+function filterListByEight(list) {
     return list.sort(function () { return 0.5 - Math.random() }).slice(0, 8);
+    // return list;
 }
 
 function filterListBySearch(list, searchWord) {

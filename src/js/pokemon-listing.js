@@ -21,3 +21,7 @@ const listElement = new PokemonListing(
   searchResult,
 );
 listElement.init();
+
+
+// const lucky = document.getElementById("lucky");
+// lucky.addEventListener("images", initLucky());
