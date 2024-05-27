@@ -32,8 +32,8 @@ export default class PokemonListing {
 }
 
 function filterListByEight(list) {
-    return list.sort(function () { return 0.5 - Math.random() }).slice(0, 8);
-    // return list;
+    // return list.sort(function () { return 0.5 - Math.random() }).slice(0, 8);
+    return list;
 }
 
 function filterListBySearch(list, searchWord) {
