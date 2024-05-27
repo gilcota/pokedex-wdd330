@@ -28,6 +28,28 @@ export default class PokemonListing {
 
     renderList(list) {
         renderListWithTemplate(pokemonCardTemplate, this.listElement, list);
+
+        this.search.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const searchWord = document.getElementById("search-input").value;
+
+            this.listElement.innerHTML = '';
+            const originalList = filterListByEight(list);
+            const newList = filterListBySearch(filterListByEight(list), searchWord);
+
+            renderListWithTemplate(pokemonCardTemplate, this.listElement, newList);
+
+            if (newList.length > 0) {
+                this.searchResult.style.display = "inline-block";
+                this.searchResult.innerHTML = newList.length + " " + (newList.length === 1 ? "result" : "results");
+            }
+            if (newList.length == originalList.length) {
+                this.searchResult.style.display = "none";
+            }
+
+        }
+        );
+
     };
 }
 
@@ -37,12 +59,11 @@ function filterListByEight(list) {
 }
 
 function filterListBySearch(list, searchWord) {
-    return list.filter(item => {
-        const brandName = item.Brand.Name.toLowerCase();
-        const name = item.Name.toLowerCase();
-        const nameWithoutBrand = item.NameWithoutBrand.toLowerCase();
+    return list.filter(pokemon => {
+        const name = pokemon.name.toLowerCase();
+        const id = String(pokemon.id);
         const search = searchWord.toLowerCase();
-        const result = brandName.includes(search) || name.includes(search) || nameWithoutBrand.includes(search);
+        const result = name.includes(search) || id.includes(search);
         return result;
     });
 }
