@@ -23,7 +23,7 @@ export default class PokemonListing {
     async init() {
         console.log("list")
         const list = await this.dataSource.getData();
-        this.renderList(filterListByEight(list));
+        this.renderList(list);
     };
 
     renderList(list) {
@@ -34,8 +34,8 @@ export default class PokemonListing {
             const searchWord = document.getElementById("search-input").value;
 
             this.listElement.innerHTML = '';
-            const originalList = filterListByEight(list);
-            const newList = filterListBySearch(filterListByEight(list), searchWord);
+            const originalList = list;
+            const newList = filterListBySearch(list, searchWord);
 
             renderListWithTemplate(pokemonCardTemplate, this.listElement, newList);
 
@@ -54,8 +54,8 @@ export default class PokemonListing {
 }
 
 function filterListByEight(list) {
-    // return list.sort(function () { return 0.5 - Math.random() }).slice(0, 8);
-    return list;
+    return list.sort(function () { return 0.5 - Math.random() }).slice(0, 8);
+    // return list;
 }
 
 function filterListBySearch(list, searchWord) {
