@@ -33,7 +33,8 @@ export default class PokemonListing {
             event.preventDefault();
             const searchWord = document.getElementById("search-input").value;
 
-            this.listElement.innerHTML = '';
+            this.listElement.innerHTML = "";
+            list = list.sort(((a, b) => a.id - b.id));
             const originalList = list;
             const newList = filterListBySearch(list, searchWord);
 
@@ -45,6 +46,27 @@ export default class PokemonListing {
             }
             if (newList.length == originalList.length) {
                 this.searchResult.style.display = "none";
+            }
+
+        }
+        );
+
+        this.search.addEventListener("reset", async (event) => {
+            event.preventDefault();
+            const searchWord = document.getElementById("search-input").value;
+
+            this.listElement.innerHTML = '';
+            const originalList = list;
+            const newList = filterListByEight(list, searchWord);
+
+            renderListWithTemplate(pokemonCardTemplate, this.listElement, newList);
+
+            if (newList.length > 0) {
+                this.newList.style.display = "inline-block";
+                this.newList.innerHTML = newList.length + " " + (newList.length === 1 ? "result" : "results");
+            }
+            if (newList.length == originalList.length) {
+                this.newList.style.display = "none";
             }
 
         }
