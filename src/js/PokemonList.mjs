@@ -2,7 +2,9 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 function pokemonCardTemplate(pokemon) {
     return `<div class="pokemon-card">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" loading="lazy" alt="Image of ${pokemon.name}" class="pimage"/>
+    <a href="../pokemon/index.html?pokemon=${pokemon.id}">    
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" loading="lazy" alt="Image of ${pokemon.name}" class="pimage"/>
+    </a>
         <audio class="roar" preload="none" width="100%" height="auto" controls controlsList="nodownload noplaybackrate">
             <source src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemon.id}.ogg" type="audio/ogg">
         </audio>

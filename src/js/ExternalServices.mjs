@@ -1,5 +1,6 @@
 //https://pokeapi.co/api/v2/pokemon/
 const baseURL = import.meta.env.VITE_SERVER_URL
+const baseURL1 = import.meta.env.VITE_SERVER_URL1
 
 //ok
 async function convertToJson(res) {
@@ -33,4 +34,22 @@ export default class ExternalServices {
 
         return pokemonArray;
     }
+
+
+
+
+
+
+    async findPokemonById(id) {
+        this.getData("tents");
+
+        const response = await fetch(baseURL1 + `pokemon/${id}`);
+        //console.table(response)
+        const data = await convertToJson(response);
+        //console.table(data)
+        return data.results;
+    }
+
+
+
 }

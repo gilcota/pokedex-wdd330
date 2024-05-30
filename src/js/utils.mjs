@@ -40,7 +40,13 @@ export function renderListWithTemplate(templateFn, parentElement,
   parentElement.insertAdjacentHTML(position, listItem.join(""));
 }
 
-
+//product that we want to show the details for
+export function getParams(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const pokemon = urlParams.get(param)
+  return pokemon;
+};
 
 
 
@@ -103,14 +109,6 @@ export function hideElement(htmlClass) {
 export function showElement(htmlClass) {
   document.querySelector(htmlClass).classList.add("show");
 }
-
-//product that we want to show the details for
-export function getParams(param) {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param)
-  return product;
-};
 
 
 
