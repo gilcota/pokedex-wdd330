@@ -20,29 +20,54 @@ const listElement = new PokemonListing(
   searchForm,
   searchResult,
 );
+
 listElement.init();
 
-
 //Change color related to pokédex version chosen.
-document.getElementById("redVersion").onclick = function () { redVersion() };
-document.getElementById("blueVersion").onclick = function () { blueVersion() };
-document.getElementById("yellowVersion").onclick = function () { yellowVersion() };
+document.getElementById("versions").onchange = function () {
+  var pokemonClass = "pokemon-card";
+
+  if (document.getElementById("versions").value == "red") {
+    redVersion();
+  } else if (document.getElementById("versions").value == "blue") {
+    blueVersion();
+  } else if (document.getElementById("versions").value == "yellow") {
+    yellowVersion();
+  }
+}
 
 function redVersion() {
-  var element = document.querySelectorAll(".pokemon-card").forEach(e => e.classList.replace("pokemon-card", "pokemon-red"));
-  var element = document.querySelectorAll(".pokemon-blue").forEach(e => e.classList.replace("pokemon-blue", "pokemon-red"));
-
-  // var divider = document.querySelector(".divider-top");
-  // divider.classList.replace("divider-top", "divider-top-red");
-
-  // var divider = document.querySelector(".divider");
-  // divider.classList.replace("divider", "divider-red");
+  if (document.querySelector(".pokemon-card")) {
+    document.querySelectorAll(".pokemon-card").forEach(e => e.classList.replace("pokemon-card", "pokemon-red"));
+    document.querySelectorAll(".divider").forEach(e => e.classList.replace("divider", "divider-red"));
+    document.getElementById("submit").id = "submit-red";
+  } else if (document.querySelector(".pokemon-blue")) {
+    document.querySelectorAll(".pokemon-blue").forEach(e => e.classList.replace("pokemon-blue", "pokemon-red"));
+    document.querySelectorAll(".divider-blue").forEach(e => e.classList.replace("divider-blue", "divider-red"));
+    document.getElementById("submit-blue").id = "submit-red";
+  }
 }
+
 function blueVersion() {
-  var element = document.querySelectorAll(".pokemon-card").forEach(e => e.classList.replace("pokemon-card", "pokemon-blue"));
-  var element = document.querySelectorAll(".pokemon-red").forEach(e => e.classList.replace("pokemon-red", "pokemon-blue"));
+  if (document.querySelector(".pokemon-card")) {
+    document.querySelectorAll(".pokemon-card").forEach(e => e.classList.replace("pokemon-card", "pokemon-blue"));
+    document.querySelectorAll(".divider").forEach(e => e.classList.replace("divider", "divider-blue"));
+    document.getElementById("submit").id = "submit-blue";
+  } else if (document.querySelector(".pokemon-red")) {
+    document.querySelectorAll(".pokemon-red").forEach(e => e.classList.replace("pokemon-red", "pokemon-blue"));
+    document.querySelectorAll(".divider-red").forEach(e => e.classList.replace("divider-red", "divider-blue"));
+    document.getElementById("submit-red").id = "submit-blue";
+  }
 }
+
 function yellowVersion() {
-  var element = document.querySelectorAll(".pokemon-red").forEach(e => e.classList.replace("pokemon-red", "pokemon-card"));
-  var element = document.querySelectorAll(".pokemon-blue").forEach(e => e.classList.replace("pokemon-blue", "pokemon-card"));
+  if (document.querySelector(".pokemon-red")) {
+    document.querySelectorAll(".pokemon-red").forEach(e => e.classList.replace("pokemon-red", "pokemon-card"));
+    document.querySelectorAll(".divider-red").forEach(e => e.classList.replace("divider-red", "divider"));
+    document.getElementById("submit-red").id = "submit";
+  } else if (document.querySelector(".pokemon-blue")) {
+    document.querySelectorAll(".pokemon-blue").forEach(e => e.classList.replace("pokemon-blue", "pokemon-card"));
+    document.querySelectorAll(".divider-blue").forEach(e => e.classList.replace("divider-blue", "divider"));
+    document.getElementById("submit-blue").id = "submit";
+  }
 }
