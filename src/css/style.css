@@ -76,16 +76,23 @@ header {
 
 /* Main */
 
-.divider,
-.divider-top {
-  border-bottom: 5px solid #150a0a3f;
+.divider {
+  border-bottom: 5px solid var(--accent2-color);
+}
+
+.divider-red {
+  border-bottom: 5px solid var(--accent3-color);
+}
+
+.divider-blue {
+  border-bottom: 5px solid var(--accent1-color);
 }
 
 .search {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px;
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -93,14 +100,10 @@ header {
   grid-column: 1/2;
   grid-row: 1/2;
   align-self: center;
-  /* position: absolute; */
-  /* left: 45%; */
-  /* transform: translateX(-50%); */
   display: flex;
   align-items: center;
   background-color: #f2f2f2;
   border-radius: 20px;
-  /* margin: 5px; */
   padding: 4px 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -111,6 +114,7 @@ header {
   outline: none;
   font-size: 24px;
   padding: 8px;
+  padding-left: 14px;
   border-radius: 20px;
   font: var(--font-family);
 }
@@ -132,7 +136,35 @@ header {
   transition: background-color 0.3s ease;
 }
 
-#submit button:hover {
+#submit-red {
+  margin-left: 10px;
+  background-color: var(--accent3-color);
+  font: var(--font-family);
+  font-size: 24px;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submit-blue {
+  margin-left: 10px;
+  background-color: var(--accent1-color);
+  font: var(--font-family);
+  font-size: 24px;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submit:hover,
+#submit-red:hover,
+#submit-blue:hover {
   background-color: #45a049;
 }
 
@@ -143,7 +175,6 @@ header {
 }
 
 #lucky {
-  /* grid-column: 1/2; */
   margin-left: 10px;
   background-color: var(--accent2-color);
   font: var(--font-family);
@@ -154,54 +185,17 @@ header {
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
-
   width: 53px;
   height: 40px;
   padding: 0px 0px 0px 0px;
   background: url("/images/lucky_energy.png");
   background-size: 53px 40px;
-
-  /* background-repeat: no-repeat, repeat; */
 }
 
-#redVersion {
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
-  background-color: var(--accent3-color);
+#versions {
   font-size: 24px;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#yellowVersion {
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
-  background-color: var(--accent2-color);
-  font-size: 24px;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#blueVersion {
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
-  background-color: var(--accent1-color);
-  font-size: 24px;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background: #F2F2F2;
+  border: #F2F2F2;
 }
 
 /* Pokemon Start*/
@@ -258,7 +252,6 @@ header {
 
 /* {biue version color} */
 
-
 #pokemon-id {
   font-size: 30px;
   margin-top: 0px;
@@ -275,8 +268,6 @@ header {
   text-align: center;
   text-transform: capitalize;
 }
-
-
 
 .pokemon-list {
   display: grid;
@@ -333,8 +324,6 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 audio::-webkit-media-controls-panel {
   background-color: #F2F2F2;
 }
-
-
 
 /* Pokemon End*/
 
