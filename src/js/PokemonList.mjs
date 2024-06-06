@@ -18,7 +18,9 @@ function pokemonCardTemplate(pokemon) {
             <source src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemon.id}.ogg" type="audio/ogg">
         </audio>
         <h1 id="pokemon-id">#${pokemon.id}</h1>
+        <a id="anchor" href="../pokemon/index.html?pokemon=${pokemon.id}"> 
         <h1 id="pokemon-name">${pokemon.name}</h1>
+        </a>
         </div>`;
 }
 export default class PokemonListing {

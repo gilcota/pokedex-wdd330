@@ -1,44 +1,50 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex | Home</title>
+    <!-- VT323 font -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+    </style>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pokédex | Home</title>
-  <!-- VT323 font -->
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
-  </style>
-  <link rel="stylesheet" href="/css/style.css" />
-</head>
+  <body>
+    <header id="main-header" class="divider-red"></header>
 
-<body>
-  <header id="main-header" class="divider-red"></header>
+    <main class="divider-red">
+      <section class="search">
+        <form id="search-form">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Pokémon name or id..."
+          />
+          <button type="submit" id="submit-red">Search</button>
+          <p>&nbsp;&nbsp;Surprise!&nbsp;</p>
+          <button id="lucky" type="reset"></button>
+          <p>&nbsp;&nbsp;Version&nbsp;</p>
+          <select name="versions" id="versions" onchange="changeClass">
+            <option value="red">🔴</option>
+            <option value="blue">🔵</option>
+            <option value="yellow">🟡</option>
+          </select>
+          <span id="result-search"> 0 results </span>
+        </form>
+      </section>
+      <section class="pokemon-list"></section>
+    </main>
 
-  <main class="divider-red">
-    <section class="search">
-      <form id="search-form">
-        <input type="text" id="search-input" placeholder="Pokémon name or id..." />
-        <button type="submit" id="submit-red">Search</button>
-        <p>&nbsp;&nbsp;Surprise!&nbsp;</p>
-        <button id="lucky" type="reset"></button>
-        <p>&nbsp;&nbsp;Version&nbsp;</p>
-        <select name="versions" id="versions" onchange="changeClass">
-          <option value="red">🔴</option>
-          <option value="blue">🔵</option>
-          <option value="yellow">🟡</option>
-        </select>
-        <span id="result-search"> 0 results </span>
-      </form>
-    </section>
-    <section class="pokemon-list"></section>
-  </main>
+    <footer id="main-footer"></footer>
 
-  <footer id="main-footer"></footer>
-
-  <script src="js/main.js" type="module"></script>
-  <script src="js/pokemon-listing.js" type="module"></script>
-  <script>function playSound(src) { new Audio(src).play() }</script>
-</body>
-
+    <script src="js/main.js" type="module"></script>
+    <script src="js/pokemon-listing.js" type="module"></script>
+    <script>
+      function playSound(src) {
+        new Audio(src).play();
+      }
+    </script>
+  </body>
 </html>

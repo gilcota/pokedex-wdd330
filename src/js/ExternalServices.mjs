@@ -1,5 +1,6 @@
 //https://pokeapi.co/api/v2/pokemon/
 const baseURL = import.meta.env.VITE_SERVER_URL
+const baseURL1 = import.meta.env.VITE_SERVER_URL1
 
 //ok
 async function convertToJson(res) {
@@ -18,12 +19,6 @@ export default class ExternalServices {
         const response = await fetch(baseURL);
         const data = await convertToJson(response);
         console.info(data)
-        // return data.results;
-
-        // let pokemonArray = [];
-        // for (let i = 0; i < data.results; i++) {
-        //     pokemonArray.push({ name: data.results[i], id: i + 1 });
-        // }
 
         let pokemonArray = data.results;
 
@@ -33,4 +28,11 @@ export default class ExternalServices {
 
         return pokemonArray;
     }
+
+    async findPokemonById(id) {
+        this.getData("pokemon");
+        const response = await fetch(baseURL1 + `pokemon/${id}`);
+        return data.results;
+    }
+
 }
